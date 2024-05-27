@@ -12,22 +12,39 @@
   </head>
 
   <body>
+
+
+ 
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        </li>
+      </ul>
+      <span class="navbar-text">
+           <p>
+    <% if @current_user %>
+      <%= @current_user["username"] %>
+      <a href="/logout">Logout</a>
+    <% else %>
+      <a href="/login">Login</a> |
+      <a href="/users/new">Sign up</a>
+    <% end %>
+</p>
+      </span>
+    </div>
+  </div>
+</nav>
+
+
     <div>
       <%= flash["notice"] %>
     </div>
-    <div>
-      <a href="/">Home</a>
-       <p>
-  <% if @current_user %>
-    <%= @current_user["username"] %>
-    <a href="/logout">Logout</a>
-  <% else %>
-    <a href="/login">Login</a> |
-    <a href="/users/new">Signup</a>
-  <% end %>
-</p>
-    </div>
-
     <%= yield %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
