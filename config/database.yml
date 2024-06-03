@@ -22,4 +22,7 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: dogstagram_production
+  username: dogstagram
+  password: <%= ENV["DOGSTAGRAM_DATABASE_PASSWORD"] %>
