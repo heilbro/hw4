@@ -1,10 +1,18 @@
 <h1><%= @place["name"] %></h1>
+<div class="container">
+  <div class="row">
 <h2>My Entries</h2>
 <% if @current_user %>
 <div class="row">
   <% for entry in @entries %>
     <div class="col-sm-6 col-md-4">
     <h3><%= entry["title"] %></h3>
+      <% if entry.uploaded_image.attached? %>
+  <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
+<% else %>
+  <img src="<%= entry["image"] %>" class="img-fluid">
+  <% end %>
+
     <h4><%= entry["occurred_on"] %></h4>
     <p><%= entry["description"] %></p>
      </div>
@@ -14,11 +22,8 @@
   <p>
     <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
   </p>
-<% end %>
 
-<p>
-  <a href="/places">Back to All Places</a>
-</p>
+<% end %>
 
 
 
