@@ -23,6 +23,6 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  database: dogstagram_production
-  username: dogstagram
-  password: <%= ENV["DOGSTAGRAM_DATABASE_PASSWORD"] %>
+  database: dogstagram_final_production
+  username: dogstagram_final
+  password: <%= ENV["DOGSTAGRAM_FINAL_DATABASE_PASSWORD"] %>
