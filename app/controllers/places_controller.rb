@@ -2,7 +2,6 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
-    @current_user = User.find_by({ "id" => session["user_id"] })
   end
 
   def show
